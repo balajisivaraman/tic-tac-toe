@@ -27,4 +27,6 @@ project/boot/
 .history
 .cache
 
-# Created by .ignore support plugin (hsz.mobi)
+#Ensime Specific
+.ensime
+.ensime_cache
