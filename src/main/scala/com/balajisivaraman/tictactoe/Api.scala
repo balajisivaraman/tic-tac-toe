@@ -21,7 +21,7 @@ object Api {
       val hasPlayerWon = winningPositions.exists(winningPosition => movedBoard.squares.filter(square => winningPosition.contains(square.position)).forall(isOccupiedBy(_, player)))
       val newBoard =
         if(hasPlayerWon) {
-          GameOver(movedBoard.squares)
+          GameOver(movedBoard.squares, player)
         } else if (movedBoard.squares.forall(!isEmpty(_))) {
           NoMoreMoves(movedBoard.squares.map{case square: OccupiedBy => square})
         } else movedBoard
@@ -31,7 +31,10 @@ object Api {
     playerAt(board, position).map(_ => FailedMove).getOrElse(successfulMove)
   }
 
-  def whoWon(finishedBoard: Finished): Option[Player] = ???
+  def whoWon(finishedBoard: Finished): Option[Player] = finishedBoard match {
+    case GameOver(_, player) => Some(player)
+    case NoMoreMoves(_)      => None
+  }
 
   def playerAt(board: Board, position: Position): Option[Player] =
     board.squares
