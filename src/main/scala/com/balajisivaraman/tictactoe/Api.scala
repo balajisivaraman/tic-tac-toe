@@ -4,7 +4,7 @@ object Api {
 
   def move(board: IsMovable, p: Position): Response = ???
 
-  def whoWon(finishedBoard: Finished): Player = ???
+  def whoWon(finishedBoard: Finished): Option[Player] = ???
 
   def playerAt(board: Board, p: Position): Option[Player] = ???
 
