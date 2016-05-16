@@ -2,7 +2,7 @@ package com.balajisivaraman.tictactoe
 
 object Api {
 
-  def move(board: IsMovable, position: Position): Response = ???
+  def move(player: Player, board: IsMovable, position: Position): Response = ???
 
   def whoWon(finishedBoard: Finished): Option[Player] = ???
 
