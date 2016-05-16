@@ -2,10 +2,10 @@ package com.balajisivaraman.tictactoe
 
 object Api {
 
-  def move(player: Player, board: IsMovable, position: Position): Response =
+  def move(player: Player, board: IsMovable, position: Position): Response = {
+    def successfulMove(player: Player, board: Board, position: Position): SuccessfulMove = ???
     playerAt(board, position).map(_ => FailedMove).getOrElse(successfulMove(player, board, position))
-
-  def successfulMove(player: Player, board: Board, position: Position): SuccessfulMove = ???
+  }
 
   def whoWon(finishedBoard: Finished): Option[Player] = ???
 
